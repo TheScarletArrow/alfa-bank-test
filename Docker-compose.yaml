@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  java-file:
+    image: sha256:66804b1c96bf12b5a76d321fcd69c7cf681298122804aa6845320e77a58932b6
+    build: .
+    ports:
+      - "8080:8080"
