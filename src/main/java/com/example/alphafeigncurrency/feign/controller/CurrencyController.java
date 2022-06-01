@@ -9,13 +9,18 @@ import com.example.alphafeigncurrency.feign.entity.ResponseGiphy;
 import com.example.alphafeigncurrency.feign.exception.NoSuchCurrencyException;
 import com.example.alphafeigncurrency.feign.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.*;
 import java.util.Random;
+
 
 
 @RestController
@@ -73,9 +78,9 @@ public class CurrencyController {
             Random random = new Random();
             assert broke != null;
             final GiphyData data = broke.getData().get(random.nextInt(broke.getData().size()));
-            final String url = data.getImages().downSized.getUrl();
+            final DownSized downSized = data.getImages().downSized;
             return ResponseEntity.ok()
-                    .body(url);
+                    .body(downSized.getUrl());
         }
     }
 
